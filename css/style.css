@@ -63,8 +63,10 @@ select {
   border: 3px solid black;
 }
 
-.container.end {
-  background-color: rgba(0, 0, 0, 0.5);
+.square.end {
+  background-color: darkgray;
+  z-index: 999;
+  border: none;
 }
 
 .square {

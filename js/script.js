@@ -30,13 +30,16 @@ startButton.addEventListener('click', function(){
       
       const clickBombs = bombe.includes(this._squareId);
     
-      if((clickBombs) || (i < counter)){
+      if(clickBombs){
         this.classList.add('redbomb');
         container.classList.add('end');
-        message = `hai colpito una bomba - hai perso - il tuo punteggio è ${counter}` ;
+        message = `hai colpito una bomba - hai perso - il tuo punteggio è ${counter}`;
         giocoTerminato = true;
+
+      }else if(( 85 == counter)){
         
-        
+        message = "Hai vinto";
+
       }else if(!clickBombs){
         counter++;
         message = "prosegui";
@@ -71,8 +74,6 @@ startButton.addEventListener('click', function(){
 
   console.log(bombe)
 
-  
-  
 
   // 5. resetto i quadrati nell'html 
   function reset(){
