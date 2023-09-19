@@ -23,16 +23,23 @@ header h1 {
 
 button {
   width: 80px;
-  background-color: green;
   color: white;
   border-radius: 20px;
   border: none;
 }
 
+#start {
+  background-color: green;
+}
+
+#reply {
+  background-color: red;
+}
+
 select {
   width: 80px;
   text-align: center;
-  background-color: green;
+  background-color: orange;
   color: white;
   border-radius: 20px;
   border: none;

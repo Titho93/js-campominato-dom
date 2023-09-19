@@ -6,7 +6,7 @@
 const container   = document.querySelector('.container');
 // 2. Creo un bottone 
 const startButton = document.getElementById("start");
-reset();
+const replyButton = document.getElementById("reply");
 // 8. creo una lista bombe che saranno 16 numeri random ;
 let bombe = [];
 let message;
@@ -30,11 +30,12 @@ startButton.addEventListener('click', function(){
       
       const clickBombs = bombe.includes(this._squareId);
     
-      if(clickBombs){
+      if((clickBombs) || (i < counter)){
         this.classList.add('redbomb');
         container.classList.add('end');
         message = `hai colpito una bomba - hai perso - il tuo punteggio è ${counter}` ;
         giocoTerminato = true;
+        
         
       }else if(!clickBombs){
         counter++;
@@ -77,3 +78,7 @@ startButton.addEventListener('click', function(){
   function reset(){
     container.innerHTML = '';
   }
+
+  replyButton.addEventListener('click', function(){
+    location.reload();
+  })
