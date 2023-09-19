@@ -7,13 +7,18 @@
 /* Header  */
 header {
   position: relative;
-  padding-left: 50px;
-  padding-top: 30px;
+  margin: 0 auto;
 }
 
 header h1 {
   font-size: 70px;
   color: blue;
+  text-align: center;
+}
+
+.buttons {
+  padding-top: 30px;
+  text-align: center;
 }
 
 button {
@@ -35,7 +40,7 @@ select {
 
 /* Main  */
 .main-wrapper {
-  height: 100vh;
+  height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,4 +84,9 @@ select {
 
 .square.redbomb {
   background-color: red;
+}
+
+h2 {
+  text-align: center;
+  padding: 5px;
 }
