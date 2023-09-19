@@ -33,7 +33,7 @@ startButton.addEventListener('click', function(){
         message = `hai colpito una bomba - hai perso - il tuo punteggio è ${counter}`;
         giocoTerminato = true;
 
-      }else if(( 85 == counter)){
+      }else if(( 84 == counter)){
         
         message = "Hai vinto";
 
@@ -62,13 +62,12 @@ startButton.addEventListener('click', function(){
   
   }
   
-  for (let i = 0; i < 16; i++) {
-    // Genera un numero casuale compreso tra 1 e 100
+  while (bombe.length < 16) {
     const numeroCasuale = Math.floor(Math.random() * 100) + 1;
-    
-    // Inserisci il numero casuale nell'array
-    bombe.push(numeroCasuale);
-  }
+    if (!bombe.includes(numeroCasuale)) {
+        bombe.push(numeroCasuale);
+    }
+  }  
 
   console.log(bombe)
 
