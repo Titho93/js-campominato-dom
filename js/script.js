@@ -1,8 +1,14 @@
+// 9. creo una condizione in cui se il quadrato premuto nasconde una bomba oppure non ci sono più quadrati senza bombe allora il gioco si conclude mostra le altre bombe e mi restituisce un messaggio con i punti fatti
+// 10. altrimenti incremento il contatore di uno e proseguo con il gioco
+
+
 // 1. seleziono il container e lo salvo in una variabile
 const container   = document.querySelector('.container');
 // 2. Creo un bottone 
 const startButton = document.getElementById("start");
 reset();
+// 8. creo una lista bombe che saranno 16 numeri random ;
+const bombe = [];
 
 startButton.addEventListener('click', function(){
   reset();
@@ -36,12 +42,17 @@ square.addEventListener('click', function(){
   
   }
   
+  for (let i = 0; i < 16; i++) {
+    // Genera un numero casuale compreso tra 1 e 100
+    const numeroCasuale = Math.floor(Math.random() * 100) + 1;
+    
+    // Inserisci il numero casuale nell'array
+    bombe.push(numeroCasuale);
+  }
+
+  console.log(bombe)
+
   // 5. resetto i quadrati nell'html 
   function reset(){
     container.innerHTML = '';
   }
-  
-  // 8. imposto una funzione in modo che al click del bottone venga generata la griglia
-  
-  
-  
