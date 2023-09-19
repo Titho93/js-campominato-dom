@@ -11,6 +11,7 @@ reset();
 let bombe = [];
 let message;
 counter = 0;
+let giocoTerminato = false;
 
 
 startButton.addEventListener('click', function(){
@@ -25,18 +26,22 @@ startButton.addEventListener('click', function(){
     square.addEventListener('click', function(){
       console.log(this._squareId)
   
-      this.classList.toggle('clicked');
+      this.classList.add('clicked');
       
       const clickBombs = bombe.includes(this._squareId);
     
       if(clickBombs){
         this.classList.add('redbomb');
-        message = "hai colpito una bomba - hai perso!";
+        container.classList.add('end');
+        message = `hai colpito una bomba - hai perso - il tuo punteggio è ${counter}` ;
+        giocoTerminato = true;
+        
       }else if(!clickBombs){
         counter++;
         message = "prosegui";
       }
-      console.log(message)
+      console.log(counter)
+      document.getElementById('output').innerHTML = message;
     })
     
     container.append(square)
@@ -49,7 +54,7 @@ startButton.addEventListener('click', function(){
   
     const newSquare = document.createElement('div');
     newSquare.className = 'square';
-    newSquare._squareId = index;
+    newSquare._squareId = index; 
     newSquare.innerHTML = `<span>${index}</span>`
     return newSquare;
   
@@ -65,6 +70,7 @@ startButton.addEventListener('click', function(){
 
   console.log(bombe)
 
+  
   
 
   // 5. resetto i quadrati nell'html 
