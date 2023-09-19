@@ -8,27 +8,40 @@ const container   = document.querySelector('.container');
 const startButton = document.getElementById("start");
 reset();
 // 8. creo una lista bombe che saranno 16 numeri random ;
-const bombe = [];
+let bombe = [];
+let message;
+counter = 0;
+
 
 startButton.addEventListener('click', function(){
   reset();
   container.classList.add('none');
 
-  // 3. faccio un ciclo su 100
-for(let i = 1; i <= 100; i++){
-  // 4.2. ad ogni ciclo devo far generare un quadrato
-  const square = addSquare(i);
-
-// 6. per ogni quadrato aggiungere un evento al click
-// 7. al click del quadrato aggiungere/togliere(toggle) la classe del click
-square.addEventListener('click', function(){
-    console.log(this._squareId)
-
-    this.classList.toggle('clicked');
-  })
-
-  container.append(square)
-}
+    // 3. faccio un ciclo su 100
+  for(let i = 1; i <= 100; i++){
+    // 4.2. ad ogni ciclo devo far generare un quadrato
+    square = addSquare(i);
+  
+    square.addEventListener('click', function(){
+      console.log(this._squareId)
+  
+      this.classList.toggle('clicked');
+      
+      const clickBombs = bombe.includes(this._squareId);
+    
+      if(clickBombs){
+        this.classList.add('redbomb');
+        message = "hai colpito una bomba - hai perso!";
+      }else if(!clickBombs){
+        counter++;
+        message = "prosegui";
+      }
+      console.log(message)
+    })
+    
+    container.append(square)
+    
+  }
 })
 
   // 4.1. creo una funzione per generare quadrati 
@@ -51,6 +64,8 @@ square.addEventListener('click', function(){
   }
 
   console.log(bombe)
+
+  
 
   // 5. resetto i quadrati nell'html 
   function reset(){

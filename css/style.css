@@ -72,3 +72,7 @@ select {
 .none  {
   display: flex;
 }
+
+.square.redbomb {
+  background-color: red;
+}
