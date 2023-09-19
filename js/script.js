@@ -1,7 +1,3 @@
-// 9. creo una condizione in cui se il quadrato premuto nasconde una bomba oppure non ci sono più quadrati senza bombe allora il gioco si conclude mostra le altre bombe e mi restituisce un messaggio con i punti fatti
-// 10. altrimenti incremento il contatore di uno e proseguo con il gioco
-
-
 // 1. seleziono il container e lo salvo in una variabile
 const container   = document.querySelector('.container');
 // 2. Creo un bottone 
@@ -29,7 +25,8 @@ startButton.addEventListener('click', function(){
       this.classList.add('clicked');
       
       const clickBombs = bombe.includes(this._squareId);
-    
+
+      // 9. creo una condizione in cui se il quadrato premuto nasconde una bomba oppure non ci sono più quadrati senza bombe allora il gioco si conclude mostra le altre bombe e mi restituisce un messaggio con i punti fatti
       if(clickBombs){
         this.classList.add('redbomb');
         container.classList.add('end');
@@ -40,6 +37,7 @@ startButton.addEventListener('click', function(){
         
         message = "Hai vinto";
 
+        // 10. altrimenti incremento il contatore di uno e proseguo con il gioco
       }else if(!clickBombs){
         counter++;
         message = "prosegui";
